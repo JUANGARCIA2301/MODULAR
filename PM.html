@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta Universitaria</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fffbfa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #19355d;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            color: #fffbfa;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0;
+            font-size: 1.2em;
+            font-weight: normal;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 14px;
+            border: none;
+            background-color: #26415f;
+            color: #fffbfa;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1d4a80;
+        }
+
+        .message {
+            text-align: center;
+            padding: 25px;
+            border-radius: 10px;
+            background-color: #19355d;
+            color: #fffbfa;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm" action="https://script.google.com/macros/s/AKfycbxMcmQhiKAcyFIeztfND_uMZ2qyGw1VoO_c3I1omn62a-6dux0nwiF7ZjDi4Z62iOqR/exec" method="post">
+        <h1>Encuesta Universitaria</h1>
+        <label>¿Cómo calificarías tu experiencia general en nuestra coordinación?</label>
+        <div class="button-group">
+            <button type="button" onclick="submitForm('Buena')">Buena</button>
+            <button type="button" onclick="submitForm('Regular')">Regular</button>
+            <button type="button" onclick="submitForm('Mala')">Mala</button>
+        </div>
+    </form>
+    <div id="confirmation" class="message" style="display:none;">
+        <h2>IntellexSatisfactio agradece por tu respuesta</h2>
+    </div>
+
+    <script>
+        function submitForm(value) {
+            const form = document.getElementById('myForm');
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'rating';
+            input.value = value;
+            form.appendChild(input);
+            form.submit();
+            document.getElementById('myForm').style.display = 'none';
+            document.getElementById('confirmation').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
+
